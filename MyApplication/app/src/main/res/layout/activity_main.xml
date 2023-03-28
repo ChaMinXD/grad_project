@@ -4,24 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#194185"
     tools:context=".MainActivity">
-
+    
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/QR_ICON"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/camera"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
     <TextView
-        android:id="@+id/QR"
+        android:id="@+id/QR_SCAN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Scanner"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="QR SCAN"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/QR_ICON"
+ />
+    <View
+        android:layout_width="269dp"
+        android:layout_height="1dp"
+        android:background="@color/white"
+        android:layout_marginTop="75dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/QR_SCAN"
+        />
 
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/Filter_Icon"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/img"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/QR_SCAN"
+        />
     <TextView
-        android:id="@+id/test"
+        android:id="@+id/Filtering"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="483dp" />
+        android:text="필터링 단어 추가"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Filter_Icon"
+
+     />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

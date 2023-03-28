@@ -15,98 +15,78 @@ data class Links (
     @SerializedName("self")val self: String
 )
 
-data class AnalData (
-    val data: A_Data
-)
-
-data class A_Data (
-    val attributes: Attributes,
-    val type: String,
+data class VirustotalUrlDto(
+    val data: Data,
     val id: String,
-    val links: Links
-)
+    val links: Links,
+    val type: String
+) {
+    data class Data(
+        val attributes: Attributes
+    ) {
+        data class Attributes(
+            val categories: Map<String, String>,
+            val favicon: Favicon,
+            val first_submission_date: Long,
+            val html_meta: Map<String, List<String>>,
+            val last_analysis_date: Long,
+            val last_analysis_results: Map<String, AnalysisResult>,
+            val last_analysis_stats: AnalysisStats,
+            val last_final_url: String,
+            val last_http_response_code: Int,
+            val last_http_response_content_length: Int,
+            val last_http_response_content_sha256: String,
+            val last_http_response_cookies: Map<String, String>,
+            val last_http_response_headers: Map<String, String>,
+            val last_modification_date: Long,
+            val last_submission_date: Long,
+            val outgoing_links: List<String>,
+            val redirection_chain: List<String>,
+            val reputation: Int,
+            val tags: List<String>,
+            val targeted_brand: Map<String, String>,
+            val times_submitted: Int,
+            val title: String,
+            val total_votes: TotalVotes,
+            val trackers: Map<String, List<Tracker>>,
+            val url: String
+        ) {
+            data class Favicon(
+                val dhash: String,
+                val raw_md5: String
+            )
 
-data class Attributes (
-    val lastModificationDate: Long,
-    val timesSubmitted: Long,
-    val totalVotes: TotalVotes,
-    val threatNames: List<Any?>,
-    val redirectionChain: List<String>,
-    val lastSubmissionDate: Long,
-    val lastHTTPResponseContentLength: Long,
-    val lastHTTPResponseHeaders: LastHTTPResponseHeaders,
-    val reputation: Long,
-    val tags: List<String>,
-    val lastAnalysisDate: Long,
-    val firstSubmissionDate: Long,
-    val categories: Categories,
-    val lastHTTPResponseContentSha256: String,
-    val lastHTTPResponseCode: Long,
-    val lastFinalURL: String,
-    val url: String,
-    val title: String,
-    val lastAnalysisStats: LastAnalysisStats,
-    val lastAnalysisResults: Map<String, LastAnalysisResult>,
-    val tld: String,
-    val htmlMeta: Map<String, List<String>>,
-    val outgoingLinks: List<String>
-)
+            data class AnalysisResult(
+                val category: String,
+                val engine_name: String,
+                val method: String,
+                val result: String
+            )
 
-data class Categories (
-    val forcepointThreatSeeker: String,
-    val sophos: String,
-    val xcitiumVerdictCloud: String,
-    val bitDefender: String
-)
+            data class AnalysisStats(
+                val harmless: Int,
+                val malicious: Int,
+                val suspicious: Int,
+                val timeout: Int,
+                val undetected: Int
+            )
 
-data class LastAnalysisResult (
-    val category: Category,
-    val result: Result,
-    val method: Method,
-    val engineName: String
-)
+            data class TotalVotes(
+                val harmless: Int,
+                val malicious: Int
+            )
 
-enum class Category {
-    Harmless,
-    Undetected
+            data class Tracker(
+                val id: String,
+                val timestamp: Long,
+                val url: String
+            )
+        }
+    }
+
+    data class Links(
+        val self: String
+    )
 }
 
-enum class Method {
-    Blacklist
-}
-
-enum class Result {
-    Clean,
-    Unrated
-}
-
-data class LastAnalysisStats (
-    val harmless: Long,
-    val malicious: Long,
-    val suspicious: Long,
-    val undetected: Long,
-    val timeout: Long
-)
-
-data class LastHTTPResponseHeaders (
-    val contentLength: String,
-    val xXSSProtection: String,
-    val contentEncoding: String,
-    val strictTransportSecurity: String,
-    val vary: String,
-    val server: String,
-    val connection: String,
-    val pragma: String,
-    val cacheControl: String,
-    val date: String,
-    val p3P: String,
-    val referrerPolicy: String,
-    val contentType: String,
-    val xFrameOptions: String
-)
-
-data class TotalVotes (
-    val harmless: Long,
-    val malicious: Long
-)
 

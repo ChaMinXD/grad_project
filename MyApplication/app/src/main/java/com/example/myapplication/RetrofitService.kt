@@ -16,5 +16,5 @@ interface GetAnalysisService{
     @GET("urls/{id}")
     suspend fun GetScan(
         @Header("x-apikey") apikey:String,
-        @Path("id") id:String) :Response<AnalData>
+        @Path("id") id:String) : Response<VirustotalUrlDto>
 }
