@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.QR
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -12,15 +12,15 @@ class DetectedAdapter(var items:ArrayList<DetectedInfo>):RecyclerView.Adapter<De
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding:DetectedRowBinding=
             DetectedRowBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: DetectedAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.rowVaccine.text=items[position].vaccine
-        holder.binding.rowResult.text=items[position].result
+        holder.binding.rowResult.text="해당 백신에서 바이러스가 검출되었습니다 . "
 
     }
 

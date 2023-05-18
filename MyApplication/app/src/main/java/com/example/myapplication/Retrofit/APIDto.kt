@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.Retrofit
 
 import com.google.gson.annotations.SerializedName
 
@@ -13,6 +13,15 @@ data class Data (
 
 data class Links (
     @SerializedName("self")val self: String
+)
+
+data class SummaryData(
+    val message : String,
+    val content : String
+)
+data class SummaryRequest(
+    val url:String,
+    val secondFilteringWords:List<String>
 )
 
 data class VirustotalUrlDto(

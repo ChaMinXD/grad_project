@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#194185"
-    tools:context=".SummaryFragment">
+    tools:context=".QR.SummaryFragment">
     <View
         android:id="@+id/url_TextView"
         android:layout_width="309dp"
@@ -14,21 +14,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp" />
 
-        />
     <TextView
         android:id="@+id/url_text"
         android:layout_width="290dp"
         android:layout_height="35dp"
         android:textColor="#194185"
+        android:paddingEnd="40dp"
         app:layout_constraintStart_toStartOf="@id/url_TextView"
         app:layout_constraintTop_toTopOf="@+id/url_TextView"
         app:layout_constraintEnd_toEndOf="@id/url_TextView"
         app:layout_constraintBottom_toBottomOf="@id/url_TextView"
         android:textSize="15sp"
         android:textAlignment="center"
+        android:scrollbars="vertical"
+        android:maxLines="10"
 
+
+        />
+    <ImageView
+        android:id="@+id/url_link"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/link"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toEndOf="@id/url_TextView"
+        app:layout_constraintTop_toTopOf="@id/url_TextView"
+        app:layout_constraintBottom_toBottomOf="@id/url_TextView"
         />
     <View
         android:id="@+id/result_TextView"
@@ -38,7 +51,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/url_TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
 
         />
     <androidx.constraintlayout.utils.widget.ImageFilterView
@@ -72,7 +85,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/result_TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
 
         />
     <androidx.constraintlayout.utils.widget.ImageFilterButton
@@ -90,6 +103,8 @@
         android:layout_width="290dp"
         android:layout_height="190dp"
         android:textColor="#194185"
+        android:scrollbars="vertical"
+        android:maxLines="10"
         app:layout_constraintStart_toStartOf="@id/sum_TextView"
         app:layout_constraintTop_toBottomOf="@+id/sum_img"
         app:layout_constraintEnd_toEndOf="@id/sum_TextView"
@@ -97,10 +112,18 @@
         />
     <ImageView
         android:id="@+id/thum_img"
-        android:layout_width="300dp"
+        android:layout_width="309dp"
         android:layout_height="300dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/sum_TextView"/>
 
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
