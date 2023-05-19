@@ -17,7 +17,8 @@ data class Links (
 
 data class SummaryData(
     val message : String,
-    val content : String
+    val content : String,
+    val passed : Boolean
 )
 data class SummaryRequest(
     val url:String,

@@ -40,7 +40,6 @@ class SummaryFragment : Fragment() {
         url= arguments?.getString("url").toString()
         model=arguments?.getString("model").toString()
 
-        Log.d("test",url)
         val filteringWord=ArrayList<String>() // 필터링단어
         binding.urlText.text=url
         db= Room.databaseBuilder(requireContext(), FilteringDatabase::class.java,"FilteringDB").allowMainThreadQueries().build()
@@ -103,7 +102,12 @@ class SummaryFragment : Fragment() {
 
                 if (data != null) {
                     Log.d("SERVERTEST2", data.toString())
-                    binding.sumText.text=data.content
+                    if(data.passed==true){
+                        binding.sumText.text=data.content
+                    }
+                    else{
+                        binding.sumText.text="사용자가 설정한 단어 필터링으로 인해 내용이 필터링 되었습니다 . 해당 링크로 접속을 원하시면 위에 링크 아이콘을 눌러주세요 ."
+                    }
 
                 } else {
                     Log.d("SERVERTEST3", "Response body is null")
