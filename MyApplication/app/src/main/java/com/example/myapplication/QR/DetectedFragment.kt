@@ -1,6 +1,13 @@
 package com.example.myapplication.QR
 
+import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
+import android.text.style.RelativeSizeSpan
+import android.text.style.StyleSpan
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -37,6 +44,16 @@ class DetectedFragment : Fragment() {
     }
 
     fun init(){
+        var content=binding.resultText.text.toString()
+        var spannablestring= SpannableString(content)
+        val word="Warn"
+        val start=content.indexOf(word)
+        val end=start+word.length
+        spannablestring.setSpan(ForegroundColorSpan(Color.parseColor("#FF0000")),start,end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannablestring.setSpan( StyleSpan(Typeface.BOLD), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannablestring.setSpan( RelativeSizeSpan(1.3f), start, end, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE);
+        binding.resultText.text=spannablestring
+
         var resultdata= arrayListOf<DetectedInfo>()
         detecAdapter= DetectedAdapter(dataList)
         binding.resultRecyclerview.layoutManager=

@@ -4,38 +4,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#194185"
     tools:context=".FilteringWord.FilteringWordActivity">
-    
-    <EditText
-        android:id="@+id/EditText"
-        android:layout_width="275dp"
-        android:layout_height="39dp"
-        android:background="@drawable/round_shape"
+    <ImageView
+        android:id="@+id/icon_qwer"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:src="@drawable/icon_logo"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
         />
     <TextView
-        android:id="@+id/add_btn"
+        android:id="@+id/EditText_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Filtering Word"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
-        android:layout_width="70dp"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:textColor="@color/sky_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/icon_qwer"/>
+    
+    <EditText
+        android:gravity="left|center"
+        android:paddingStart="10dp"
+        android:id="@+id/EditText"
+        android:hint="필터링 단어를 입력하세요 ."
+        android:layout_width="275dp"
         android:layout_height="39dp"
-        android:text="추가"
-        android:textStyle="bold"
-        android:textSize="22sp"
-        android:textAlignment="center"
-        android:background="@drawable/round_shape"
-        app:layout_constraintStart_toEndOf="@+id/EditText"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/shape_round_gray"
+        app:layout_constraintStart_toStartOf="@id/EditText_textview"
+        app:layout_constraintTop_toBottomOf="@id/EditText_textview"
+        android:layout_marginTop="5dp"
         />
+    <ImageView
+        android:id="@+id/add_btn"
+        android:src="@drawable/icon_plus"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+
+
+        app:layout_constraintStart_toEndOf="@+id/EditText"
+        app:layout_constraintTop_toTopOf="@id/EditText"
+        app:layout_constraintBottom_toBottomOf="@id/EditText"
+
+        />
+    <View
+        android:id="@+id/line"
+        android:layout_width="320dp"
+        android:layout_height="1dp"
+        android:background="@color/sky_blue"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/EditText"
+        />
+    <TextView
+        android:id="@+id/Filtering_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My Filtering Word"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:textColor="@color/sky_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/FilteringRecyclerView"
-        android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@id/EditText"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/Filtering_textview"
         android:layout_width="match_parent"
-        android:layout_height="600dp"/>
+        android:layout_height="500dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

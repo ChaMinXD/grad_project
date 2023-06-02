@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.DB.FilteringEntity
 import com.example.myapplication.databinding.FilteringRowBinding
 
-class WordAdapter(var items:ArrayList<FilteringEntity>):RecyclerView.Adapter<WordAdapter.ViewHolder>() {
+    class WordAdapter(var items:ArrayList<FilteringEntity>):RecyclerView.Adapter<WordAdapter.ViewHolder>() {
     inner class ViewHolder(val binding:FilteringRowBinding):RecyclerView.ViewHolder(binding.root){
         init{
             binding.Xbtn.setOnClickListener {

@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Build
@@ -19,13 +20,14 @@ class MainActivity : AppCompatActivity() {
     val api_key = BuildConfig.MY_API_KEY
     var model="gpt"
 
+    @SuppressLint("ResourceAsColor")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         /** Click */
-        binding.QRICON.setOnClickListener {
+        binding.QRVIEW.setOnClickListener {
             val integrator = IntentIntegrator(this)
             integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE) // 여러가지 바코드중에 특정 바코드 설정 가능
             integrator.setPrompt("QR 코드를 스캔하여 주세요:)") // 스캔할 때 하단의 문구
@@ -35,21 +37,22 @@ class MainActivity : AppCompatActivity() {
             integrator.initiateScan() // 스캔
         }
         binding.gptBtn.setOnClickListener {
-            binding.gptBtn.setBackgroundColor(Color.WHITE)
-            binding.gptBtn.setTextColor(Color.parseColor("#194185"))
+            binding.gptBtn.setBackgroundResource(R.drawable.shape_round_lightblue)
+            binding.gptBtn.setTextColor(Color.BLUE)
 
-            binding.bertBtn.setBackgroundColor(Color.parseColor("#194185"))
-            binding.bertBtn.setTextColor(Color.WHITE)
+            binding.bartBtn.setBackgroundResource(R.drawable.shape_round_gray)
+            binding.bartBtn.setTextColor(Color.WHITE)
             model="gpt"
         }
-        binding.bertBtn.setOnClickListener {
-            binding.gptBtn.setBackgroundColor(Color.parseColor("#194185"))
+        binding.bartBtn.setOnClickListener {
+            binding.bartBtn.setBackgroundResource(R.drawable.shape_round_lightblue)
+            binding.bartBtn.setTextColor(Color.BLUE)
+
+            binding.gptBtn.setBackgroundResource(R.drawable.shape_round_gray)
             binding.gptBtn.setTextColor(Color.WHITE)
-            binding.bertBtn.setBackgroundColor(Color.WHITE)
-            binding.bertBtn.setTextColor(Color.parseColor("#194185"))
-            model="bert"
+            model="bart"
         }
-        binding.FilterIcon.setOnClickListener {
+        binding.FilteringVIEW.setOnClickListener {
             val intent = Intent(this, FilteringWordActivity::class.java)
             startActivity(intent)
 

@@ -3,9 +3,16 @@ package com.example.myapplication.QR
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
 import android.text.method.ScrollingMovementMethod
+import android.text.style.ForegroundColorSpan
+import android.text.style.RelativeSizeSpan
+import android.text.style.StyleSpan
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -52,6 +59,16 @@ class SummaryFragment : Fragment() {
 
 
     fun init() {
+        var content=binding.resultText.text.toString()
+        var spannablestring=SpannableString(content)
+        val word="Safe"
+        val start=content.indexOf(word)
+        val end=start+word.length
+        spannablestring.setSpan(ForegroundColorSpan(Color.parseColor("#00A0FF")),start,end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannablestring.setSpan( StyleSpan(Typeface.BOLD), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannablestring.setSpan( RelativeSizeSpan(1.3f), start, end, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE);
+        binding.resultText.text=spannablestring
+
         binding.urlLink.setOnClickListener {
             val myIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
             startActivity(myIntent)
@@ -106,7 +123,7 @@ class SummaryFragment : Fragment() {
                         binding.sumText.text=data.content
                     }
                     else{
-                        binding.sumText.text="사용자가 설정한 단어 필터링으로 인해 내용이 필터링 되었습니다 . 해당 링크로 접속을 원하시면 위에 링크 아이콘을 눌러주세요 ."
+                        binding.sumText.text="사용자가 설정한 단어 필터링으로 인해 내용이 필터링 되었습니다 . 해당 링크로 접속을 원하시면 위의 링크 아이콘을 눌러주세요 ."
                     }
 
                 } else {
