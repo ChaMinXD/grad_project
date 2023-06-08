@@ -20,6 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Filtering Word"
+        android:fontFamily="@font/notosans"
         android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
         android:textSize="18sp"
@@ -46,8 +47,6 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="20dp"
-
-
         app:layout_constraintStart_toEndOf="@+id/EditText"
         app:layout_constraintTop_toTopOf="@id/EditText"
         app:layout_constraintBottom_toBottomOf="@id/EditText"
@@ -64,6 +63,7 @@
         app:layout_constraintTop_toBottomOf="@id/EditText"
         />
     <TextView
+        android:fontFamily="@font/notosans"
         android:id="@+id/Filtering_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

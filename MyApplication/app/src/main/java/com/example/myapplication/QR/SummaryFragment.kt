@@ -19,6 +19,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.room.Room
 import com.example.myapplication.DB.FilteringDatabase
@@ -79,6 +80,7 @@ class SummaryFragment : Fragment() {
         webView.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView, url: String) {
                 super.onPageFinished(view, url)
+                Thread.sleep(2000)
 
                 // 웹 페이지가 로드되면 썸네일 이미지 생성
                 val bitmap = Bitmap.createBitmap(
@@ -131,6 +133,8 @@ class SummaryFragment : Fragment() {
                 }
             } else {
                 Log.d("SERVERTEST4", response.toString())
+                Toast.makeText(context,"모델 토큰 수 제한 오류 입니다.", Toast.LENGTH_LONG).show()
+
             }
 
         }
